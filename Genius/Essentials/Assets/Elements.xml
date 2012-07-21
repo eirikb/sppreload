@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+    <CustomAction Location="ScriptLink"
+                  ScriptBlock="var s=document.createElement('script');s.src='http://code.jquery.com/jquery.min.js';document.head.appendChild(s);"
+                  Sequence="1000" />
+    <CustomAction Location="ScriptLink"
+                  ScriptBlock="var s=document.createElement('script');s.src='http://underscorejs.org/underscore-min.js';document.head.appendChild(s);"
+                  Sequence="1001" />
+</Elements>
