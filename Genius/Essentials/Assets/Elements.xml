@@ -18,7 +18,7 @@
                                 };"
                   Sequence="1000" />
     <CustomAction Location="ScriptLink"
-                  ScriptBlock="var s=document.createElement('script');s.src='genius/js/preload.js';document.head.appendChild(s);"
+                  ScriptBlock="var s=document.createElement('script');s.src='~site/genius/js/preload.js';document.head.appendChild(s);"
                   Sequence="1001" />
     <CustomAction Location="ScriptLink"
                   ScriptBlock="genius.loadScript('jquery', 'http://code.jquery.com/jquery.min.js');" Sequence="1002" />
