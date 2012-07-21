@@ -3,5 +3,6 @@
   <Files>
     <ProjectItemFile Source="Elements.xml" Target="Assets\" Type="ElementManifest" />
     <ProjectItemFile Source="genius\js\preload.js" Target="Assets\genius\js\" Type="ElementFile" />
+    <ProjectItemFile Source="genius\js\genius.js" Target="Assets\genius\js\" Type="ElementFile" />
   </Files>
 </ProjectItem>

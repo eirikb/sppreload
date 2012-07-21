@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Elements.xml" />
+    <Content Include="Assets\genius\js\genius.js" />
     <Content Include="Assets\genius\js\preload.js" />
     <Content Include="Features\GeniusEssentials\GeniusEssentials.Template.xml">
       <DependentUpon>GeniusEssentials.feature</DependentUpon>

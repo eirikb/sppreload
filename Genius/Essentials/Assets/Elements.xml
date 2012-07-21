@@ -3,25 +3,29 @@
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
     <Module Name="Assets">
         <File Path="Assets\genius\js\preload.js" Url="genius/js/preload.js" />
+        <File Path="Assets\genius\js\genius.js" Url="genius/js/genius.js" />
     </Module>
 
-    <CustomAction Location="ScriptLink"
-                  ScriptBlock="
-                                genius = {
+    <CustomAction Location="ScriptLink" Sequence="1000"
+                  ScriptBlock="genius = {
                                     preload: [],
                                     callbacks: {},
                                     loaded: {},
                                     loadScript: function(name, url, callback) {
+                                        if (arguments.length === 1) return genius.preload.push({ url: name });
+                                        if (typeof url === 'function')  {
+                                            callback = url;
+                                            url = null;
+                                        }
                                         if (genius.loaded[name]) return callback();
                                         genius.preload.push({ name: name, url: url, callback: callback});
                                     }
-                                };"
-                  Sequence="1000" />
-    <CustomAction Location="ScriptLink"
-                  ScriptBlock="var s=document.createElement('script');s.src='~site/genius/js/preload.js';document.head.appendChild(s);"
-                  Sequence="1001" />
-    <CustomAction Location="ScriptLink"
-                  ScriptBlock="genius.loadScript('jquery', 'http://code.jquery.com/jquery.min.js');" Sequence="1002" />
-    <CustomAction Location="ScriptLink"
-                  ScriptBlock="genius.loadScript('underscore', 'http://underscorejs.org/underscore-min.js');" Sequence="1003" />
+                                };" />
+    <CustomAction Location="ScriptLink" Sequence="1001"
+                  ScriptBlock="var s=document.createElement('script');s.src='~site/genius/js/preload.js';document.head.appendChild(s);" />
+    <CustomAction Location="ScriptLink" Sequence="1002"
+                  ScriptBlock="genius.loadScript('jquery', 'http://code.jquery.com/jquery.min.js');" />
+    <CustomAction Location="ScriptLink" Sequence="1003"
+                  ScriptBlock="genius.loadScript('underscore', 'http://underscorejs.org/underscore-min.js');" />
+    <CustomAction Location="ScriptLink" Sequence="1004" ScriptBlock="genius.loadScript('~site/genius/js/genius.js');" />
 </Elements>
