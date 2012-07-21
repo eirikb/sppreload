@@ -51,7 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{6e0d6a4e-1245-413b-a3af-19b457a81782}</SharePointProjectItemId>
+      <SharePointProjectItemId>{82376354-ec37-4740-b14a-a8c8501e450a}</SharePointProjectItemId>
     </None>
     <None Include="Features\GeniusEssentials\GeniusEssentials.feature">
       <FeatureId>{ca55af81-65d1-4075-95a4-b7250190149c}</FeatureId>
@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Elements.xml" />
+    <Content Include="Assets\genius\js\preload.js" />
     <Content Include="Features\GeniusEssentials\GeniusEssentials.Template.xml">
       <DependentUpon>GeniusEssentials.feature</DependentUpon>
     </Content>

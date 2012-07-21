@@ -1,10 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+    <Module Name="Assets">
+        <File Path="Assets\genius\js\preload.js" Url="genius/js/preload.js" />
+    </Module>
+
     <CustomAction Location="ScriptLink"
-                  ScriptBlock="var s=document.createElement('script');s.src='http://code.jquery.com/jquery.min.js';document.head.appendChild(s);"
+                  ScriptBlock="
+                                genius = {
+                                    preload: [],
+                                    callbacks: {},
+                                    loaded: {},
+                                    loadScript: function(name, url, callback) {
+                                        if (genius.loaded[name]) return callback();
+                                        genius.preload.push({ name: name, url: url, callback: callback});
+                                    }
+                                };"
                   Sequence="1000" />
     <CustomAction Location="ScriptLink"
-                  ScriptBlock="var s=document.createElement('script');s.src='http://underscorejs.org/underscore-min.js';document.head.appendChild(s);"
+                  ScriptBlock="var s=document.createElement('script');s.src='genius/js/preload.js';document.head.appendChild(s);"
                   Sequence="1001" />
+    <CustomAction Location="ScriptLink"
+                  ScriptBlock="genius.loadScript('jquery', 'http://code.jquery.com/jquery.min.js');" Sequence="1002" />
+    <CustomAction Location="ScriptLink"
+                  ScriptBlock="genius.loadScript('underscore', 'http://underscorejs.org/underscore-min.js');" Sequence="1003" />
 </Elements>
