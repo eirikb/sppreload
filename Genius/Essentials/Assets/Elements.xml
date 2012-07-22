@@ -9,16 +9,14 @@
     <CustomAction Location="ScriptLink" Sequence="1000"
                   ScriptBlock="genius = {
                                     preload: [],
-                                    callbacks: {},
-                                    loaded: {},
+                                    load: function(type, name, url, callback) {
+                                        genius.preload.push({type: type, name: name, url: url, callback: callback});
+                                    },
                                     loadScript: function(name, url, callback) {
-                                        if (arguments.length === 1) return genius.preload.push({ url: name });
-                                        if (typeof url === 'function')  {
-                                            callback = url;
-                                            url = null;
-                                        }
-                                        if (genius.loaded[name]) return callback();
-                                        genius.preload.push({ name: name, url: url, callback: callback});
+                                        genius.load('script', name, url, callback);
+                                    },
+                                    loadStyle: function(name, url, callback) {
+                                        genius.load('style', name, url, callback);
                                     }
                                 };" />
     <CustomAction Location="ScriptLink" Sequence="1001"
