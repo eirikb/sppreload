@@ -44,6 +44,7 @@
             element.src = preload.url;
         } else {
             element = document.createElement('link');
+            element.rel = 'stylesheet';
             element.href = preload.url;
         }
 
