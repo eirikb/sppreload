@@ -43,9 +43,6 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Assets\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{82376354-ec37-4740-b14a-a8c8501e450a}</SharePointProjectItemId>
     </None>
@@ -69,6 +66,9 @@
     <Content Include="Features\SPPreload\SPPreload.Template.xml">
       <DependentUpon>SPPreload.feature</DependentUpon>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
