@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Assets">
+    <File Path="Assets\eirikb\js\sppreload.js" Url="/eirikb/js/sppreload.js" />
+  </Module>
+
+  <CustomAction Location="ScriptLink" Sequence="1"
+                ScriptBlock="loadjs=(function(){var f=function(){f.l.push(arguments)};f.l=[];return f})();" />
+  <CustomAction Location="ScriptLink" Sequence="2"
+                ScriptBlock="loadcss=(function(){var f=function(){f.l.push(arguments)};f.l=[];return f})();" />
+  <CustomAction Location="ScriptLink" Sequence="3"
+                ScriptBlock="var s=document.createElement('script');s.src='/eirikb/js/preload.js';document.head.appendChild(s);" />
+</Elements>
