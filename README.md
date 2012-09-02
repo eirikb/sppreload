@@ -8,6 +8,9 @@ And prevent duplication of scripts at the same time.
 
 ## Usage
 
+Use __Elements.xml__ (Module) to reference your files, see the Elements file from EnhancedLookup as an example:  
+https://github.com/eirikb/enhancedlookup/blob/master/Assets/Elements.xml
+
 ```javascript
 // Load jQuery, both http and https
 loadjs('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');
