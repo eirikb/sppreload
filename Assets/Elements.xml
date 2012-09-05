@@ -11,5 +11,5 @@
   <CustomAction Location="ScriptLink" Sequence="2"
                 ScriptBlock="loadcss=(function(){var f=function(){f.l.push(arguments)};f.l=[];return f})();" />
   <CustomAction Location="ScriptLink" Sequence="3"
-                ScriptBlock="var s=document.createElement('script');s.src='/eirikb/js/sppreload.min.js';document.head.appendChild(s);" />
+                ScriptBlock="var s=document.createElement('script');s.src='/eirikb/js/sppreload.min.js';document.getElementsByTagName('head')[0].appendChild(s);" />
 </Elements>

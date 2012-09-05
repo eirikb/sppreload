@@ -3,17 +3,30 @@
     var js = { };
     var queue = [];
 
+    // Simple non-augmenting polyfill for Aray.prototype.forEach (IE)
+
     function each(array, cb) {
         for (var i = 0; i < array.length; i++) {
             cb(array[i], i);
         }
     }
 
+    // Simple non-augmenting polyfill for Aray.prototype.indexOf (IE)
+
+    function indexOf(array, obj, start) {
+        for (var i = (start || 0), j = array.length; i < j; i++) {
+            if (array[i] === obj) return i;
+        }
+        return -1;
+    }
+
     each(loadcss.l, function(src) {
         var link = document.createElement('link');
+        var head = document.getElementsByTagName('head')[0];
+
         link.rel = 'stylesheet';
         link.href = src[0];
-        document.head.appendChild(link);
+        head.appendChild(link);
     });
 
     each(loadjs.l, function(script) {
@@ -46,7 +59,7 @@
 
     function onScriptLoaded(name) {
         each(queue, function(script) {
-            var index = script[0].indexOf(name);
+            var index = indexOf(script[0], name);
             if (index < 0) return;
 
             script[0].splice(index, 1);
