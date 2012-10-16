@@ -3,6 +3,14 @@
     var js = { };
     var queue = [];
 
+    (function() {
+        loadCss();
+        loadJs();
+        // Finally set loadjs to loadScript for convenience
+        window.loadjs = loadScript;
+    });
+
+
     // Simple non-augmenting polyfill for Aray.prototype.forEach (IE)
 
     function each(array, cb) {
@@ -20,26 +28,29 @@
         return -1;
     }
 
-    each(loadcss.l, function(src) {
-        var link = document.createElement('link');
-        var head = document.getElementsByTagName('head')[0];
+    function loadCss() {
+        if (!loadcss) return;
+        each(loadcss.l, function(src) {
+            var link = document.createElement('link');
+            var head = document.getElementsByTagName('head')[0];
 
-        link.rel = 'stylesheet';
-        link.href = src[0];
-        head.appendChild(link);
-    });
+            link.rel = 'stylesheet';
+            link.href = src[0];
+            head.appendChild(link);
+        });
+    }
 
-    each(loadjs.l, function(script) {
-        var hasDeps = Object.prototype.toString.call(script[0]) === '[object Array]';
+    function loadJs() {
+        if (!loadjs) return;
+        each(loadjs.l, function(script) {
+            var hasDeps = Object.prototype.toString.call(script[0]) === '[object Array]';
 
-        script = Array.prototype.slice.call(script, 0);
+            script = Array.prototype.slice.call(script, 0);
 
-        if (hasDeps) queue.push(script);
-        else preload(script);
-    });
-
-    // Finally set loadjs to loadScript for convenience
-    window.loadjs = loadScript;
+            if (hasDeps) queue.push(script);
+            else preload(script);
+        });
+    }
 
     function preload(script) {
         if (script.length === 1) {
@@ -82,6 +93,7 @@
 
                     callback();
 
+                    // Handle memory leak in IE
                     script.onload = script.onreadystatechange = null;
                     head.removeChild(script);
                 }
