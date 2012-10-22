@@ -3,12 +3,12 @@
     var js = { };
     var queue = [];
 
-    (function() {
+    (function () {
         loadCss();
         loadJs();
         // Finally set loadjs to loadScript for convenience
         window.loadjs = loadScript;
-    });
+    })();
 
 
     // Simple non-augmenting polyfill for Aray.prototype.forEach (IE)
