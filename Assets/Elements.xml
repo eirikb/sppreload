@@ -6,9 +6,9 @@
   </Module>
 
   <CustomAction Location="ScriptLink" Sequence="55"
-                ScriptBlock="loadjs=(function(){var f=function(){f.l.push(arguments)};f.l=[];return f})();" />
+                ScriptBlock=";window.loadjs=(function(){var f=function(){f.l.push(arguments)};f.l=[];return f})();" />
   <CustomAction Location="ScriptLink" Sequence="56"
-                ScriptBlock="loadcss=(function(){var f=function(){f.l.push(arguments)};f.l=[];return f})();" />
+                ScriptBlock=";window.loadcss=(function(){var f=function(){f.l.push(arguments)};f.l=[];return f})();" />
   <CustomAction Location="ScriptLink" Sequence="57"
-                ScriptBlock="(function(){var s=document.createElement('script');s.src='/eirikb/js/sppreload.js';document.getElementsByTagName('head')[0].appendChild(s);})();" />
+                ScriptBlock=";(function(){var s=document.createElement('script');s.src='/eirikb/js/sppreload.js';document.getElementsByTagName('head')[0].appendChild(s);})();" />
 </Elements>
