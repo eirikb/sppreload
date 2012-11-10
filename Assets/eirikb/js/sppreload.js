@@ -1,9 +1,10 @@
-﻿(function() {
+﻿;
+(function() {
 
     var js = { };
     var queue = [];
 
-    (function () {
+    (function() {
         loadCss();
         loadJs();
         // Finally set loadjs to loadScript for convenience
@@ -11,7 +12,7 @@
     })();
 
 
-    // Simple non-augmenting polyfill for Aray.prototype.forEach (IE)
+    // Simple non-augmenting polyfill for Array.prototype.forEach (IE)
 
     function each(array, cb) {
         for (var i = 0; i < array.length; i++) {

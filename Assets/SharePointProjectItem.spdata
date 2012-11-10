@@ -3,6 +3,5 @@
   <Files>
     <ProjectItemFile Source="Elements.xml" Target="Assets\" Type="ElementManifest" />
     <ProjectItemFile Source="eirikb\js\sppreload.js" Target="Assets\eirikb\js\" Type="ElementFile" />
-    <ProjectItemFile Source="eirikb\js\sppreload.min.js" Target="Assets\eirikb\js\" Type="ElementFile" />
   </Files>
 </ProjectItem>
