@@ -62,9 +62,9 @@
         var name = script[0];
         var url = script[1];
         if (js[name]) return;
+        js[name] = true;
 
         loadScript(url, function() {
-            js[name] = true;
             onScriptLoaded(name);
         });
     }
