@@ -33,3 +33,7 @@ loadjs('/scripts/myutils.js');
 // Load some styles
 loadcss('/styles/mystyls.css');
 ```
+
+## Contributors
+
+  - [Nick Larter](http://sharepoint.stackexchange.com/users/4545/nick-larter)
