@@ -30,7 +30,7 @@
     }
 
     function loadCss() {
-        if (!loadcss) return;
+        if (!window.loadcss) return;
         each(loadcss.l, function(src) {
             var link = document.createElement('link');
             var head = document.getElementsByTagName('head')[0];
@@ -42,7 +42,7 @@
     }
 
     function loadJs() {
-        if (!loadjs) return;
+        if (!window.loadjs) return;
         each(loadjs.l, function(script) {
             var hasDeps = Object.prototype.toString.call(script[0]) === '[object Array]';
 
